@@ -1,5 +1,5 @@
 {
-    "name": "Mnist_LeNet",
+    "name": "Ai-doctor",
     "n_gpu": 1,
 
     "arch": {
@@ -7,7 +7,7 @@
         "args": {}
     },
     "data_loader": {
-        "type": "MnistDataLoader",
+        "type": "CustomDataLoader",
         "args":{
             "data_dir": "data/",
             "batch_size": 128,
@@ -15,6 +15,10 @@
             "validation_split": 0.1,
             "num_workers": 2
         }
+    },
+    "dataset": {
+      "type": "CustomDataset2D",
+      "args":{}
     },
     "optimizer": {
         "type": "Adam",
@@ -41,7 +45,7 @@
         "save_dir": "saved/",
         "save_period": 1,
         "verbosity": 2,
-        
+
         "monitor": "min val_loss",
         "early_stop": 10,
 
